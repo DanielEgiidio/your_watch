@@ -1,3 +1,5 @@
+import { PersonalizadoSvg } from "@/components/ui/Icons";
+
 // NAVIGATION
 export const NAV_LINKS = [
   { href: '/', key: 'home', label: 'Home' },
@@ -19,28 +21,28 @@ export const PEOPLE_URL = [
 export const FEATURES = [
   {
     title: 'Bonés Personalizados',
-    icon: '/map.svg',
+    icon: '/edit.svg',
     variant: 'custom-gradient',
     description:
       'Crie bonés únicos com a sua marca. Envie-nos o seu logo e escolha o tipo de boné que deseja. Nós cuidamos do resto, entregando bonés personalizados que destacam sua identidade.',
   },
   {
     title: 'Bonés Promocionais',
-    icon: '/calendar.svg',
+    icon: '/sells.svg',
     variant: 'green',
     description:
       "Aumente a visibilidade da sua marca. Selecione o modelo e envie seu logo. Produzimos bonés de alta qualidade para eventos e brindes.",
   },
   {
     title: 'Bonés Esportivos',
-    icon: '/tech.svg',
+    icon: '/sport.svg',
     variant: 'green',
     description:
       'Combine estilo e performance. Envie seu logo e escolha entre vários modelos esportivos. Garantimos bonés confortáveis e duráveis.',
   },
   {
     title: 'Bonés de Uniforme',
-    icon: '/location.svg',
+    icon: '/suit.svg',
     variant: 'orange',
     description:
       'Personalize a imagem da sua equipe. Envie seu logo e escolha o modelo. Produzimos bonés que reforçam a identidade corporativa. ',

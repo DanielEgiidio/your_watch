@@ -62,7 +62,7 @@ export function Form() {
             <Input id="phone" placeholder="83999010101" type="text" value={formData.phone} onChange={handleChange} />
           </LabelInputContainer>
           <button
-            className="bg-gradient-to-br relative group/btn flex justify-center items-center bg-gray-900 hover:bg-gray-800 rounded-full  w-full text-white h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
+            className="bg-gradient-to-br relative group/btn flex justify-center items-center bg-gray-900 hover:bg-gray-800 rounded-full  w-full text-white h-14 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
             type="submit"
           >
             Entrar em Contato

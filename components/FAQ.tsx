@@ -66,7 +66,7 @@ const FAQ = () => {
 
   return (
     <div className="max-w-6xl mx-auto my-8 p-8 lg:pt-[14rem] pt-[10rem]" id="FAQ">
-      <h1 className="lg:bold-52 font-bold text-center lg:pb-[6rem] pb-[4rem]">Para sanar suas dúvidas!</h1>
+      <h1 className="lg:bold-52 bold-32 font-bold text-center lg:pb-[6rem] pb-[4rem]">Para sanar suas dúvidas!</h1>
       <div id="accordion-open" data-accordion="open" className="space-y-4">
         {faqData.map((faq, index) => (
           <div key={index} className="bg-white shadow-md rounded-md overflow-hidden">
