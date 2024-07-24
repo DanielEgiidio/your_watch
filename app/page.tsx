@@ -28,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = "Your Watch – Relógios Exclusivos e Sofisticados";
   const description =
     "Descubra uma seleção exclusiva de relógios de pulso, combinando modelos vintage com designs modernos. Encontre o relógio perfeito para cada momento.";
-  const imageUrl = "/wtachHero"; // Substitua pelo URL da imagem padrão
+  const imageUrl = "/watchHero"; // Substitua pelo URL da imagem padrão
 
   return {
     title,
