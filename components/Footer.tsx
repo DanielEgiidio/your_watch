@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import React from 'react'
-import { IconLogo } from './ui/Icons'
+import Link from "next/link";
+import React from "react";
+import { IconLogo, WatchLogo } from "./ui/Icons";
 
 const Footer = () => {
   return (
@@ -72,13 +72,16 @@ const Footer = () => {
             <div className="">
               <h6 className="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
                 <div className="me-3 [&>svg]:h-[50px] [&>svg]:w-[50px] flex items-center">
-                 <IconLogo/>
-                  <span className="bold-20 tex-center text-gray-900">Jairo Cap</span>
+                  <WatchLogo />
+                  <span className="bold-20 tex-center text-gray-900">
+                    Your Watch
+                  </span>
                 </div>
               </h6>
               <p>
-                Bonés exclusivos que potencializam sua marca, equipe ou evento. Com anos de experiência e 
-                milhares de bonés feitos sob medida, ajudamos empresas em todo o Brasil a se destacarem.
+                Transforme cada momento com nossos relógios de pulso exclusivos,
+                combinando o charme dos modelos vintage com a inovação dos novos
+                designs.
               </p>
             </div>
             {/* Products section */}
@@ -87,22 +90,22 @@ const Footer = () => {
                 Produtos
               </h6>
               <p className="mb-4">
-                <Link href="#Products">Chapéus</Link>
+                <Link href="#Products">Relógios Digitais</Link>
               </p>
               <p className="mb-4">
-                <Link href="#Products">Mochilas</Link>
+                <Link href="#Products">Relógios Personalizados</Link>
               </p>
               <p className="mb-4">
-                <Link href="#Products">Viseiras</Link>
+                <Link href="#Products">Melhor Conjunto</Link>
               </p>
               <p>
-                <Link href="#Products">Chapéu Pescador</Link>
+                <Link href="#Products">Relógios Vintage</Link>
               </p>
             </div>
             {/* Useful links section */}
             <div>
               <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
-                Links Úteis	
+                Links Úteis
               </h6>
               <p className="mb-4">
                 <Link href="#About">Sobre</Link>
@@ -133,8 +136,8 @@ const Footer = () => {
                     <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
                   </svg>
                 </span>
-                  Rua José Roberto da Nóbrega, <br />
-                  174, Helvécio Praxedes
+                Rua Exemplo, <br />
+                180, Praça do Centro
               </p>
               <p className="mb-4 flex items-center justify-center md:justify-start">
                 <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
@@ -147,7 +150,7 @@ const Footer = () => {
                     <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                   </svg>
                 </span>
-                  jairocapoficial@gmail.com
+                yourwatchexemplo@gmail.com
               </p>
               <p className="mb-4 flex items-center justify-center md:justify-start">
                 <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
@@ -163,7 +166,7 @@ const Footer = () => {
                     />
                   </svg>
                 </span>
-                + 83 999 010 00
+                + 83 999 999 9
               </p>
             </div>
           </div>
@@ -171,14 +174,13 @@ const Footer = () => {
         {/*Copyright section*/}
         <div className="bg-black/5 p-6 text-center">
           <span>© 2024 Todos os direitos reservados:</span>
-          <a className="font-semibold" href="https://tw-elements.com/">
-            Jairo Cap
+          <a className="font-semibold" href="#Hero">
+            Your Watch
           </a>
         </div>
       </footer>
     </>
+  );
+};
 
-  )
-}
-
-export default Footer
+export default Footer;

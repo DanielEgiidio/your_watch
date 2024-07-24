@@ -1,5 +1,3 @@
-
-
 // import CaseCap from "@/components/CaseCap";
 import Hero from "@/components/Hero";
 import Clients from "@/components/Clients";
@@ -8,7 +6,7 @@ import FAQ from "@/components/FAQ";
 import { Form } from "@/components/Form";
 import { NewProducts } from "@/components/NewProducts";
 import About from "@/components/About";
-
+import { Metadata } from "next";
 
 export default function Home() {
   return (
@@ -22,27 +20,40 @@ export default function Home() {
       <FAQ />
       <Form />
     </>
-  )
+  );
 }
 
+export async function generateMetadata(): Promise<Metadata> {
+  // Definir título, descrição e imagem padrão para compartilhamento
+  const title = "Your Watch – Relógios Exclusivos e Sofisticados";
+  const description =
+    "Descubra uma seleção exclusiva de relógios de pulso, combinando modelos vintage com designs modernos. Encontre o relógio perfeito para cada momento.";
+  const imageUrl = "/wtachHero"; // Substitua pelo URL da imagem padrão
 
-// export async function generateMetadata({
-//   params: {},
-// }: HomeProps): Promise<Metadata> {
-//   const data = await getPageData();
-//   const page = data.page;
-
-//   return {
-//     title: page.pagetitle || "Pagina Principal", 
-//     description: page.heroTitle || "Você encontrou sua solução",
-//     openGraph: {
-//       images: [
-//         {
-//           url: page.pageImage?.url || 'default-url', // Provide a default URL here
-//           width: 1200,
-//           height: 630,
-//         },
-//       ],
-//     },
-//   };
-// }
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      title,
+      description,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}

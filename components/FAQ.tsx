@@ -1,59 +1,36 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const faqData = [
   {
-    question: "Como funciona a quantidade mínima?",
-    answer: `Você pode fazer a partir de 30 unidades idênticas. Mas tem que ser idênticos mesmo, tá? 🙂 Não pode ter variações. Isso ocorre pois temos uma produção em série, para grandes volumes.`,
-    link: "#Form"
+    question: "Quais são os tipos de relógios disponíveis na Your Watch?",
+    answer: `
+        Na Your Watch, oferecemos uma curada seleção de relógios de pulso, que abrange desde modelos vintage atemporais até designs modernos e inovadores. Cada peça é meticulosamente escolhida para garantir qualidade e exclusividade, refletindo o melhor de ambas as eras do horologismo.
+        `,
+    link: "#Form",
   },
   {
-    question: "Como funciona o prazo de fabricação?",
+    question: "Como posso personalizar meu relógio?",
     answer: `
-        O prazo de fabricação se inicia no momento em que o orçamento é aprovado e o cliente paga a primeira parcela. A partir desse dia, se contam de 25 à 30 dias úteis para o seu pedido ficar pronto para despacho. Após o prazo de fabricação, o consultor de pós-vendas vai te contactar para que haja a quitação do pedido e para que o mesmo seja despachado. A partir daí, se iniciará a contagem do prazo de envio, que pode variar da empresa e modalidade escolhida pelo cliente.
+        Oferecemos um serviço de personalização exclusivo que permite aos nossos clientes criar um relógio que realmente reflita sua personalidade e estilo. Você pode selecionar os materiais, cores, mostradores e até adicionar gravações personalizadas. Nosso time de especialistas estará à disposição para guiá-lo em cada passo do processo, garantindo um resultado impecável.
     `,
-    link: "#Form"
+    link: "#Form",
   },
   {
-    question: "Detalhes técnicos dos bonés",
+    question: " Qual é a política de garantia da Your Watch?",
     answer: `
-        Trucker
-        Frente firme (peça única), aba curva revestida de tecido e com 5 costuras, tela de poliéster na copa (laterais e traseira) e fecho plástico ajustável.
-        Americano
-        Frente firme (peça única), aba curva revestida de tecido e com 5 costuras, revestimento de tecido na copa (laterais e traseira) e fecho plástico ajustável.
-        Aba Reta
-        Frente firme (peça única), aba reta revestida de tecido e com 5 costuras, revestimento de tecido na copa (laterais e traseira) e fecho plástico ajustável.
-        Viseira Padrão
-        Toda revestida em tecido, regulador de plástico, aba curva flexível.
-        6 gomos
-        Frente firme (divida em 2 gomos), aba curva revestida de tecido e com 5 costuras, tela de poliéster ou tecido na copa (laterais e traseira) e fecho plástico ajustável.
-        Dad hat
-        Frente flexível (peça única), aba curva revestida de tecido e com 8 costuras, revestimento de tecido na copa (laterais e traseira) e fecho fitão tecido.
+        Todos os nossos relógios são acompanhados por uma garantia de 2 anos, que cobre quaisquer defeitos de fabricação. Além disso, oferecemos uma garantia estendida opcional para proporcionar ainda mais tranquilidade. Nossa equipe de atendimento ao cliente está sempre pronta para assisti-lo com qualquer dúvida ou necessidade de assistência.
     `,
-    link: "#Form"
+    link: "#Form",
   },
   {
-    question: "Formas de pagamento",
+    question: "Quais são as opções de pagamento disponíveis na Your Watch?",
     answer: `
-          O pagamento pode ser feito por meio de PIX, ou transferencia bancaria. Quem decide sempre é o cliente. O pagamento será dividido em duas etapas, 50% no ato do pedido e 50% no momento que o pedido tem sua fabricação finalizada. Já na opção de cartão de crédito, é pago 100% no ato do pedido, por meio do mercado pago, com um acréscimo de 6% no valor total do pedido.
+          Aceitamos cartões de crédito, débito, transferências bancárias e plataformas digitais seguras. Sua transação será realizada com total segurança e discrição. Para assistência, nossa equipe está sempre à disposição.
     `,
-    link: "#Form"
-  },
-  {
-    question: "Como funciona todo o processso?",
-    answer: `
-      O nosso atendimento é feito via whatsapp, mas não se preocupe, é simples e rápido. Nossos consultores comerciais irão sanar quaisquer dúvidas, e nossa equipe de design fará a montagem dos layouts. Após finalizados, os enviaremos para sua aprovação, e depois disso iniciaremos a fabricação dos produtos. Por fim, a mercadoria será enviada para o seu endereço, em qualquer lugar do Brasil.
-    `,
-    link: "#Form"
-  },
-  {
-    question: "Vocês enviam para todo o Brasil?",
-    answer: `
-      Sim, enviamos. Hoje 95% de nossa produção é para fora do nosso estado. Enviamos com rapidez para toda e qualquer cidade do Brasil.
-    `,
-    link: "#Form"
+    link: "#Form",
   },
 ];
 
@@ -65,16 +42,24 @@ const FAQ = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-8 p-8 lg:pt-[14rem] pt-[10rem]" id="FAQ">
-      <h1 className="lg:bold-52 bold-32 font-bold text-center lg:pb-[6rem] pb-[4rem]">Para sanar suas dúvidas!</h1>
+    <div
+      className="max-w-6xl mx-auto my-8 p-8 lg:pt-[14rem] pt-[10rem]"
+      id="FAQ"
+    >
+      <h1 className="lg:bold-52 bold-32 font-bold text-center lg:pb-[6rem] pb-[4rem]">
+        Para sanar suas dúvidas!
+      </h1>
       <div id="accordion-open" data-accordion="open" className="space-y-4">
         {faqData.map((faq, index) => (
-          <div key={index} className="bg-white shadow-md rounded-md overflow-hidden">
+          <div
+            key={index}
+            className="bg-white shadow-md rounded-md overflow-hidden"
+          >
             <h2 id={`accordion-open-heading-${index + 1}`}>
               <button
                 type="button"
                 className={`flex items-center justify-between w-full p-8 font-medium text-gray-500 border-b-2 shadow-md gap-3 ${
-                  openIndex === index ? 'bg-gray-100' : ''
+                  openIndex === index ? "bg-gray-100" : ""
                 }`}
                 data-accordion-target={`#accordion-open-body-${index + 1}`}
                 aria-expanded={openIndex === index}
@@ -98,7 +83,11 @@ const FAQ = () => {
                 </span>
                 <svg
                   data-accordion-icon=""
-                  className={`w-3 h-3 ${openIndex === index ? 'rotate-180 transition ease' : 'transition ease'} shrink-0`}
+                  className={`w-3 h-3 ${
+                    openIndex === index
+                      ? "rotate-180 transition ease"
+                      : "transition ease"
+                  } shrink-0`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -119,7 +108,7 @@ const FAQ = () => {
                 <motion.div
                   id={`accordion-open-body-${index + 1}`}
                   initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
+                  animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
@@ -127,8 +116,11 @@ const FAQ = () => {
                 >
                   <div className="p-5 border-t-2 border-gray-200 dark:border-gray-700">
                     <p className="mb-2 text-gray-500 dark:text-gray-400">
-                      {faq.answer.split('\n').map((text, i) => (
-                        <span key={i}>{text}<br /></span>
+                      {faq.answer.split("\n").map((text, i) => (
+                        <span key={i}>
+                          {text}
+                          <br />
+                        </span>
                       ))}
                     </p>
                     {faq.link && (
@@ -150,6 +142,6 @@ const FAQ = () => {
       </div>
     </div>
   );
-}
+};
 
 export default FAQ;
