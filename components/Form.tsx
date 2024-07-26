@@ -1,28 +1,28 @@
 // path: /components/Form.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { cn } from "@/utils/cn";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import Image from "next/image";
 import { useSelectedProducts } from "../contexts/SelectedProductsContext";
 
-export function Form() {
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-  });
-  const { selectedProducts, removeProduct } = useSelectedProducts();
+interface FormValues {
+  firstname: string;
+  lastname: string;
+  email: string;
+  phone: string;
+}
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value,
-    });
-  };
+export function Form() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
+  const { selectedProducts, removeProduct } = useSelectedProducts();
 
   const handleRemoveProduct = (src: string) => {
     removeProduct(src);
@@ -32,10 +32,9 @@ export function Form() {
     window.location.href = "#Products";
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
     const products = selectedProducts.map((p) => p.src).join(", ");
-    const message = `Olá, tenho interesse em adquirir os serviços da JairoCap.%0A%0ANome: ${formData.firstname}%0AÚltimo nome: ${formData.lastname}%0AEmail: ${formData.email}%0ACelular: ${formData.phone}%0AProdutos: ${products}`;
+    const message = `Olá, tenho interesse em adquirir os serviços da JairoCap.%0A%0ANome: ${data.firstname}%0AÚltimo nome: ${data.lastname}%0AEmail: ${data.email}%0ACelular: ${data.phone}%0AProdutos: ${products}`;
     const whatsappUrl = `https://wa.me/558399990100?text=${message}`;
     window.location.href = whatsappUrl;
   };
@@ -60,7 +59,7 @@ export function Form() {
           Por favor preencha todos os campos do formulário
         </p>
 
-        <form className="my-8" onSubmit={handleSubmit}>
+        <form className="my-8" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
             <LabelInputContainer>
               <Label htmlFor="firstname">Nome</Label>
@@ -68,9 +67,11 @@ export function Form() {
                 id="firstname"
                 placeholder="José"
                 type="text"
-                value={formData.firstname}
-                onChange={handleChange}
+                {...register("firstname", { required: "Nome é obrigatório" })}
               />
+              {errors.firstname && (
+                <p style={{ color: "red" }}>{errors.firstname.message}</p>
+              )}
             </LabelInputContainer>
             <LabelInputContainer>
               <Label htmlFor="lastname">Último nome</Label>
@@ -78,9 +79,13 @@ export function Form() {
                 id="lastname"
                 placeholder="Araujo"
                 type="text"
-                value={formData.lastname}
-                onChange={handleChange}
+                {...register("lastname", {
+                  required: "Último nome é obrigatório",
+                })}
               />
+              {errors.lastname && (
+                <p style={{ color: "red" }}>{errors.lastname.message}</p>
+              )}
             </LabelInputContainer>
           </div>
           <LabelInputContainer className="mb-4">
@@ -89,9 +94,17 @@ export function Form() {
               id="email"
               placeholder="josearaujoexemplo@gmail.com"
               type="email"
-              value={formData.email}
-              onChange={handleChange}
+              {...register("email", {
+                required: "Email é obrigatório",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Email inválido. Por favor, insira um email válido.",
+                },
+              })}
             />
+            {errors.email && (
+              <p style={{ color: "red" }}>{errors.email.message}</p>
+            )}
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="phone">Celular (Whatsapp)</Label>
@@ -99,9 +112,18 @@ export function Form() {
               id="phone"
               placeholder="83999010101"
               type="text"
-              value={formData.phone}
-              onChange={handleChange}
+              {...register("phone", {
+                required: "Celular é obrigatório",
+                pattern: {
+                  value: /^\d+$/,
+                  message:
+                    "Celular inválido. Por favor, insira um número válido.",
+                },
+              })}
             />
+            {errors.phone && (
+              <p style={{ color: "red" }}>{errors.phone.message}</p>
+            )}
           </LabelInputContainer>
           {selectedProducts.length > 0 && (
             <div className="mb-4">
@@ -136,7 +158,7 @@ export function Form() {
             Adicionar mais produtos +
           </button>
           <button
-            className="bg-gradient-to-br relative group/btn flex justify-center items-center bg-gray-900 hover:bg-gray-800 rounded-full  w-full text-white h-14 mt-2 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
+            className="bg-gradient-to-br relative group/btn flex justify-center items-center bg-gray-900 hover:bg-gray-800 rounded-full w-full text-white h-14 mt-2 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
             type="submit"
           >
             Entrar em Contato
